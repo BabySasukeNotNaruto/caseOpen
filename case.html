@@ -8,15 +8,23 @@
 </head>
 <body>
     <div class="case-container">
+        <div class="indicator-line"></div>
         <div class="case-roll" id="caseRoll">
-            <img src="rareSpecial.png" alt="Item 1" class="case-item">
-            <img src="github.png" alt="Item 2" class="case-item">
-            <img src="github2.png" alt="Item 3" class="case-item">
-            <img src="jack.png" alt="Item 4" class="case-item">
-            <img src="pepsi.png" alt="Item 5" class="case-item">
+            <img src="rareSpecial.png" alt="Item 1" class="case-item" data-item="Item 1">
+            <img src="pepsi.png" alt="Item 2" class="case-item" data-item="Item 2">
+            <img src="github.png" alt="Item 3" class="case-item" data-item="Item 3">
+            <img src="github2.png" alt="Item 4" class="case-item" data-item="Item 4">
+            <img src="jack.png" alt="Item 5" class="case-item" data-item="Item 5">
+            <!-- Repeat items for continuous effect -->
+            <img src="raeSpecial.png" alt="Item 1" class="case-item">
+            <img src="pepsi.png" alt="Item 2" class="case-item">
+            <img src="github.png" alt="Item 3" class="case-item">
+            <img src="github2.png" alt="Item 4" class="case-item">
+            <img src="jack.png" alt="Item 5" class="case-item">
         </div>
     </div>
     <button onclick="startRoll()">Open Case</button>
+    <div id="selectedItem" class="selected-item">Selected Item: None</div>
 
     <script src="script.js"></script>
 </body>
