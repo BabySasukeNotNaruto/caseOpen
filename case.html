@@ -3,101 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Opening Simulator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        #case-container {
-            display: flex;
-            width: 300px;
-            overflow: hidden;
-            border: 2px solid #333;
-            background-color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .item {
-            flex: 0 0 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            border-right: 1px solid #ccc;
-        }
-
-        .item:last-child {
-            border-right: none;
-        }
-
-        #open-case {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Case Opening Roll</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="case-container">
+        <div class="case-roll" id="caseRoll">
+            <img src="item1.png" alt="Item 1" class="case-item">
+            <img src="item2.png" alt="Item 2" class="case-item">
+            <img src="item3.png" alt="Item 3" class="case-item">
+            <img src="item4.png" alt="Item 4" class="case-item">
+            <img src="item5.png" alt="Item 5" class="case-item">
+            <!-- Repeat items to create a continuous roll effect -->
+        </div>
+    </div>
+    <button onclick="startRoll()">Open Case</button>
 
-<div id="case-container">
-    <div class="item">Knife</div>
-    <div class="item">AK-47</div>
-    <div class="item">AWP</div>
-    <div class="item">Pistol</div>
-    <div class="item">Sticker</div>
-</div>
-
-<button id="open-case">Open Case</button>
-
-<script>
-    const items = ["Knife", "AK-47", "AWP", "Pistol", "Sticker"];
-    const caseContainer = document.getElementById("case-container");
-    const openCaseButton = document.getElementById("open-case");
-
-    function rollItems() {
-        // Clear previous items
-        caseContainer.innerHTML = "";
-
-        // Create the rolling effect
-        for (let i = 0; i < 30; i++) {
-            const itemIndex = i % items.length;
-            const itemDiv = document.createElement("div");
-            itemDiv.className = "item";
-            itemDiv.textContent = items[itemIndex];
-            caseContainer.appendChild(itemDiv);
-        }
-
-        // Randomly select the winning item
-        const winningItemIndex = Math.floor(Math.random() * items.length);
-        const winningItem = items[winningItemIndex];
-
-        // Append the winning item in the middle of the roll
-        const middleIndex = 15; // Index where the winning item should appear
-        const middleItemDiv = document.createElement("div");
-        middleItemDiv.className = "item";
-        middleItemDiv.textContent = winningItem;
-        caseContainer.insertBefore(middleItemDiv, caseContainer.children[middleIndex]);
-
-        // Scroll the roll to show the final winning item in the middle
-        caseContainer.scrollLeft = caseContainer.scrollWidth / 2 - caseContainer.clientWidth / 2;
-    }
-
-    openCaseButton.addEventListener("click", () => {
-        rollItems();
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
